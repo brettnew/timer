@@ -6,16 +6,14 @@ class TomatoButton extends StatelessWidget {
   final double size;
   final VoidCallback onPressed;
 
-  const TomatoButton(
-      {Key key, this.color, this.text, this.size, this.onPressed})
-      : super(key: key);
+  TomatoButton(this.color, this.text, this.onPressed, this.size);
 
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
+      color: this.color,
       child: Text(this.text, style: TextStyle(color: Colors.white)),
       onPressed: this.onPressed,
-      color: this.color,
       minWidth: this.size,
     );
   }
