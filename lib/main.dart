@@ -27,6 +27,8 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size.width;
+    final double smallButtonSize = size / 3.2;
+    final double largeButtonSize = size / 2.1;
     return ScopedModel(
       model: TimerModel(),
       child: Scaffold(
@@ -41,21 +43,21 @@ class MyHomePage extends StatelessWidget {
                 children: <Widget>[
                   ScopedModelDescendant<TimerModel>(
                     builder: (context, _, model) => TomatoButton(Colors.red,
-                        'Pomodoro', model.startPomodoro, size / 3.2),
+                        'Pomodoro', model.startPomodoro, smallButtonSize),
                   ),
                   ScopedModelDescendant<TimerModel>(
                     builder: (context, _, model) => TomatoButton(
                         Color(0xff8BC34A),
                         'Short Break',
                         model.startShort,
-                        size / 3.2),
+                        smallButtonSize),
                   ),
                   ScopedModelDescendant<TimerModel>(
                     builder: (context, _, model) => TomatoButton(
                         Color(0xff689F38),
                         'Long Break',
                         model.startLong,
-                        size / 3.2),
+                        smallButtonSize),
                   )
                 ],
               ),
@@ -76,14 +78,14 @@ class MyHomePage extends StatelessWidget {
                 children: <Widget>[
                   ScopedModelDescendant<TimerModel>(
                     builder: (context, _, model) => TomatoButton(
-                        Colors.red, 'Stop', model.stopTimer, size / 2.1),
+                        Colors.red, 'Stop', model.stopTimer, largeButtonSize),
                   ),
                   ScopedModelDescendant<TimerModel>(
                     builder: (context, _, model) => TomatoButton(
                         Color(0xff689F38),
                         'Restart',
                         model.restart,
-                        size / 2.1),
+                        largeButtonSize),
                   )
                 ],
               )
